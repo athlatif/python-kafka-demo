@@ -1,5 +1,11 @@
 # python-kafka-demo
 
+## Prerequisites 
+1. Docker 
+2. Python 3.8
+3. Kafka-python package
+
+## Steps
 1- Clone repo
 > git clone https://github.com/athlatif/python-kafka-demo.git
 
