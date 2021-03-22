@@ -2,19 +2,19 @@ from kafka import KafkaProducer
 import json
 
 
-
-# Simple example https://pypi.org/project/kafka-python/
-
+# Producer function
 def sendToproducer(data):
+    # send [ data ] to broker at [ localhost:9092 ]
+    # parse json -> bytes
     producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                value_serializer=lambda m: json.dumps(m).encode('ascii'))
+    # define topic to send data to
     producer.send('heartbeatlogs',data)
     producer.flush()
     producer.close()
     
     
-    
-    
+    # messages to be sent
 m = [{'level': 'error', 'message' : 'error in login', 'page': 'login page'},
      {'level': 'info', 'message' : 'user clicked on homepage', 'page': 'homepage'},
      {'level': 'info', 'message' : 'user clicked on info page', 'page': 'info page'},
@@ -41,6 +41,7 @@ m = [{'level': 'error', 'message' : 'error in login', 'page': 'login page'},
      
      ]
      
+# infinite loop to send data  
 while(True):     
     for i in range(len(m)):
         sendToproducer(m[i])
