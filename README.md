@@ -14,9 +14,9 @@
 > docker-compose exec broker kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1  --partitions 1 --topic topicname
 
 3- Run logs simulator code
-python3 producer.py
+> python3 producer.py
 
 4- Run consumers
-python3 mongodbconsumer.py
-python3 modelConsumer.py
+> python3 mongodbconsumer.py
+> python3 modelConsumer.py
 
